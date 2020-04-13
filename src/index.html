@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>专家诊断系统</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="./js/jquery-3.4.1.js"></script>
+  <!-- <script src="./js/ajaxfileupload.js"></script> -->
+  <script src="./js/main.js"></script>
+  <script lang='type/javascript'>
+  (function(w,u){
+    let user = window.localStorage.getItem('user');
+    if(user==null){
+        window.location.href += 'login.html';
+    }
+  })(window,undefined)
+  </script>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">专家诊断系统</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" >
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">历史记录</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePictures"
+            data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">图片</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapsePictures">
+            <li>
+              <a href="navbar.html">Navbar</a>
+            </li>
+            <li>
+              <a href="cards.html">Cards</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseOthers"
+            data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">其他</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseOthers">
+            <li>
+              <a href="personal/profile.html">个人资料</a>
+            </li>
+            <li>
+              <a href="forgot-password.html">修改密码</a>
+            </li>
+            <li>
+              <a onclick="choose_file()">上传图片</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <img id="avatar" data-toggle="popover" data-toggle="popover" data-placement="bottom" data-content='显示的内容'
+            src="https://i.loli.net/2019/09/29/NKAT7kYFU8qS5zt.jpg" alt="头像"
+            style="width: 30px;height:30px;border-radius:50%;position: relative;top: 5px;right: 15px;">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">
+              <span class="badge badge-pill badge-warning"></span>
+            </span>
+            <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">状态更新：</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>图片2状态更新</strong>
+              </span>
+              <span class="small float-right text-muted">10-3 11:21AM</span>
+              <div class="dropdown-message small">点击查看
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>图片1状态更新</strong>
+              </span>
+              <span class="small float-right text-muted">10-3 9:21 AM</span>
+              <div class="dropdown-message small">点击查看
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>图片2状态更新</strong>
+              </span>
+              <span class="small float-right text-muted">10-2 11:21 PM</span>
+              <div class="dropdown-message small">点击查看
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">查看所有</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>退出</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper row">
+    <div style="display: none;">
+      <form method="post" enctype="multipart/form-data" id="file_upload">
+        　　<p>图片预览：</p>
+        　　<img id="headPic" src="" width="150px" height="150px" style="padding: 5px">
+        　　<p>
+          　　　　<input type="file" id="upload" name="file" accept="image/gif, image/jpeg, image/png, image/jpg">
+          　　</p>
+        <p id="test-file-info"></p>
+      </form>
+    </div>
+    <div class="col-md-9">
+      <div id="main" class=".col-lg-8">
+        <div class="picture" style="display: none;"></div>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <div class="others">
+          <button onclick="submit()">提交</button>
+        </div>
+      </div>
+    </div>
+    <div id="right" class="col-md-3">
+      <div class="head row">
+        <button onclick="choose_room()" class="col-md-6">聊天室</button>
+        <button onclick="choose_room()" class="col-md-6">成员</button>
+      </div>
+      <div id="room">
+        <ul class="room" style="display:none;">
+
+        </ul>
+        <div id="chatroom">
+          <div>
+            <div class="chat_box"></div>
+            <input class="message" style="width:100%"></input>
+            <button class="send_message" onclick="send()">send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <!-- <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2017 / More Templates <a href="http://www.cssmoban.com/" target="_blank"
+              title="模板之家">模板</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板"
+              target="_blank">网页模板</a></small>
+        </div>
+      </div>
+    </footer> -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">准备退出?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">选择"确认"如果你打算退出系统</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+            <a id="logout" class="btn btn-primary">退出</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/index.js"></script>
+  </div>
+</body>
+
+</html>

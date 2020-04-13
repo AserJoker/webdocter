@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas')
+            var ctx = canvas.getContext('2d')
+            canvas.style.background = "url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1935784661,2721433377&fm=26&gp=0.jpg)"
+            canvas.style.backgroundSize = "100% 100%";
+            // var img = new Image();
+            // img.onload = function () {
+            //     ctx.drawImage(img,0,0);
+            // }
+            // img.src =
+            //     "http://f.hiphotos.baidu.com/image/h%3D300/sign=0c78105b888ba61ec0eece2f713597cc/0e2442a7d933c8956c0e8eeadb1373f08202002a.jpg";
+            var x = -1.0;
+            var y = -1.0;
+
+            function getLocation(x, y) {
+                var bbox = canvas.getBoundingClientRect();
+                return {
+                    x: (x - bbox.left) * (canvas.width / bbox.width),
+                    y: (y - bbox.top) * (canvas.height / bbox.height)
+                };
+            }
+            canvas.onmousedown = function (e) {
+                canvas.height = canvas.height;
+                var location = getLocation(e.clientX, e.clientY);
+                x = location.x;
+                y = location.y;
+                canvas.dataset
+                ctx.strokeStyle = "#000000"; //改变画笔颜色
+                ctx.lineWidth = 1;
+                ctx.arc(location.x, location.y, 60, 0, 2 * Math.PI);
+                ctx.stroke();
+            };
+
+            function clearCanvas() {
+                var c = document.getElementById("canvas");
+                var cxt = c.getContext("2d");
+                x = -1.0;
+                y = -1.0;
+                c.height = c.height;
+            }
+        }
+    </script>
+</body>
+
+</html>
