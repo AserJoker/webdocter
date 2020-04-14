@@ -19,7 +19,6 @@
 <body class="bg-dark">
   <div class="container">
     <div class="row">
-      <div class="col-4"></div>
       <div class="col-4">
         <div class="card card-login mx-auto mt-5">
           <div class="card-header">登录</div>
@@ -27,8 +26,7 @@
             <form>
               <div class="form-group">
                 <label for="Email">邮箱地址<span class="error-info" id="error-info-Email">请输入邮箱地址</span></label>
-                <input class="form-control" id="Email" type="email" aria-describedby="emailHelp"
-                  placeholder="输入邮箱">
+                <input class="form-control" id="Email" type="email" aria-describedby="emailHelp" placeholder="输入邮箱">
               </div>
               <div class="form-group">
                 <label for="Password">密码<span class="error-info" id="error-info-Password">请输入密码</span></label>
@@ -47,6 +45,21 @@
               <a class="d-block small" href="forgot-password.html">忘记密码</a>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="logo-container">
+          <svg viewBox="0 0 1000 300">
+            <symbol id="line-text">
+              <text text-anchor="middle" x="50%" y="50%" dy=".4em">
+                WebDocter
+              </text>
+            </symbol>
+            <use xlink:href="#line-text" class="text"></use>
+            <use xlink:href="#line-text" class="text"></use>
+            <use xlink:href="#line-text" class="text"></use>
+            <use xlink:href="#line-text" class="text"></use>
+          </svg>
         </div>
       </div>
     </div>
