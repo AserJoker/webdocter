@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
 })
 connection.connect();
 app.use(express.static('src'));
-app.get('/reg-req',(req,res)=>{
+app.get('//reg-req',(req,res)=>{
     let result = {code:0};
     connection.query('select * from docters',(e,r,f)=>{
         if(e) throw e;
@@ -23,7 +23,7 @@ app.get('/reg-req',(req,res)=>{
         });
     });
 });
-app.get('/login-req',(req,res)=>{
+app.get('//login-req',(req,res)=>{
     let result = {code:0,user:{Name:'',Email:''}};
     connection.query(`select * from docters where email='${req.query.Email}';`,(e,r,f)=>{
         if(e) throw e;

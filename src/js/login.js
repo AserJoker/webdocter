@@ -1,4 +1,9 @@
 (function(w,u){
+    if(w.localStorage.getItem('password')){
+        $('#Password').val(w.localStorage.getItem('password'));
+        $('#Email').val(w.localStorage.getItem('email'));
+        $('#rememberpwd').prop('checked',true);
+    }
     $('#login').click(()=>{
         let result = true;
         if($('#Email').val()==''){
@@ -29,6 +34,14 @@
                 success:(result)=>{
                     result = JSON.parse(result);
                     if(result.code == 0){
+                        if($('#rememberpwd').prop('checked')){
+                            window.localStorage.setItem('password',$('#Password').val());
+                            window.localStorage.setItem('email',$('#Email').val());
+                        }
+                        else{
+                            window.localStorage.removeItem('password');
+                            window.localStorage.removeItem('email');
+                        }
                         window.localStorage.setItem('user',JSON.stringify(result.user));
                         window.location.href = '/';
                     }
